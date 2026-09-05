@@ -1,770 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>SRC - Play Now</title>
+	<title>Stick Run Classic</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, interactive-widget=overlays-content">
+	<link rel="icon" type="image/png" sizes="16x16" href="src.png">
 
-    <!-- Favicon -->
-    <link rel="icon" href="src1.png" type="image/x-icon">
-    
-    <!-- Self-Hosted Ruffle (using your downloaded files) -->
-     <script>
+	<!-- Preload images for boot screen -->
+	<link rel="preload" href="background.svg" as="image" fetchpriority="high">
+	<link rel="preload" href="banner.svg" as="image" fetchpriority="high">
+	<link rel="preload" href="cloud.svg" as="image" fetchpriority="high">
+	<link rel="preload" href="ruffle.js" as="script">
+
+	<!-- Self-Hosted Ruffle config -->
+    <script>
     window.RufflePlayer = window.RufflePlayer || {};
+    const RENDER_HOST = "serverside-h37f.onrender.com";
     window.RufflePlayer.config = {
-        upgradeToHttps: true,
-        logLevel: "info",
-        socketProxy: [
-            // we'll fill this in once we get the host/port from the console
-        ]
+      upgradeToHttps: true,
+      logLevel: "info",
+      socketProxy: [
+          { host: "195.201.166.251", port: 443, proxyUrl: `wss://${RENDER_HOST}/?token=server1` },
+    { host: "195.201.166.251", port: 80, proxyUrl: `wss://${RENDER_HOST}/?token=server2` },
+    { host: "195.201.166.251", port: 53, proxyUrl: `wss://${RENDER_HOST}/?token=server3` },
+    { host: "195.201.166.251", port: 911, proxyUrl: `wss://${RENDER_HOST}/?token=server4` },
+    { host: "195.201.166.251", port: 1200, proxyUrl: `wss://${RENDER_HOST}/?token=server5` },
+    { host: "195.201.166.251", port: 4505, proxyUrl: `wss://${RENDER_HOST}/?token=server6` },
+    { host: "195.201.166.251", port: 8184, proxyUrl: `wss://${RENDER_HOST}/?token=server7` },
+    { host: "195.201.166.251", port: 27000, proxyUrl: `wss://${RENDER_HOST}/?token=server8` },
+    { host: "138.201.55.135", port: 443, proxyUrl: `wss://${RENDER_HOST}/?token=server9` },
+    { host: "138.201.55.135", port: 80, proxyUrl: `wss://${RENDER_HOST}/?token=server10` },
+    { host: "138.201.55.135", port: 53, proxyUrl: `wss://${RENDER_HOST}/?token=server11` },
+    { host: "138.201.55.135", port: 911, proxyUrl: `wss://${RENDER_HOST}/?token=server12` },
+    { host: "138.201.55.135", port: 1200, proxyUrl: `wss://${RENDER_HOST}/?token=server13` },
+    { host: "138.201.55.135", port: 4505, proxyUrl: `wss://${RENDER_HOST}/?token=server14` },
+    { host: "138.201.55.135", port: 8184, proxyUrl: `wss://${RENDER_HOST}/?token=server15` },
+    { host: "138.201.55.135", port: 27000, proxyUrl: `wss://${RENDER_HOST}/?token=server16` },
+    { host: "188.40.137.176", port: 443, proxyUrl: `wss://${RENDER_HOST}/?token=server17` },
+    { host: "188.40.137.176", port: 80, proxyUrl: `wss://${RENDER_HOST}/?token=server18` },
+    { host: "188.40.137.176", port: 53, proxyUrl: `wss://${RENDER_HOST}/?token=server19` },
+    { host: "188.40.137.176", port: 911, proxyUrl: `wss://${RENDER_HOST}/?token=server20` },
+    { host: "188.40.137.176", port: 1200, proxyUrl: `wss://${RENDER_HOST}/?token=server21` },
+    { host: "188.40.137.176", port: 4505, proxyUrl: `wss://${RENDER_HOST}/?token=server22` },
+    { host: "188.40.137.176", port: 8184, proxyUrl: `wss://${RENDER_HOST}/?token=server23` },
+    { host: "188.40.137.176", port: 27000, proxyUrl: `wss://${RENDER_HOST}/?token=server24` },
+    { host: "4.150.223.111", port: 443, proxyUrl: `wss://${RENDER_HOST}/?token=server25` },
+    { host: "4.150.223.111", port: 80, proxyUrl: `wss://${RENDER_HOST}/?token=server26` },
+    { host: "4.150.223.111", port: 53, proxyUrl: `wss://${RENDER_HOST}/?token=server27` },
+    { host: "4.150.223.111", port: 911, proxyUrl: `wss://${RENDER_HOST}/?token=server28` },
+    { host: "4.150.223.111", port: 1200, proxyUrl: `wss://${RENDER_HOST}/?token=server29` },
+    { host: "4.150.223.111", port: 4505, proxyUrl: `wss://${RENDER_HOST}/?token=server30` },
+    { host: "4.150.223.111", port: 8184, proxyUrl: `wss://${RENDER_HOST}/?token=server31` },
+    { host: "4.150.223.111", port: 27000, proxyUrl: `wss://${RENDER_HOST}/?token=server32` },
+    { host: "185.117.132.1", port: 443, proxyUrl: `wss://${RENDER_HOST}/?token=server33` },
+    { host: "185.117.132.1", port: 80, proxyUrl: `wss://${RENDER_HOST}/?token=server34` },
+    { host: "185.117.132.1", port: 53, proxyUrl: `wss://${RENDER_HOST}/?token=server35` },
+    { host: "185.117.132.1", port: 911, proxyUrl: `wss://${RENDER_HOST}/?token=server36` },
+    { host: "185.117.132.1", port: 1200, proxyUrl: `wss://${RENDER_HOST}/?token=server37` },
+    { host: "185.117.132.1", port: 4505, proxyUrl: `wss://${RENDER_HOST}/?token=server38` },
+    { host: "185.117.132.1", port: 8184, proxyUrl: `wss://${RENDER_HOST}/?token=server39` },
+    { host: "185.117.132.1", port: 27000, proxyUrl: `wss://${RENDER_HOST}/?token=server40` }
+      ]
     };
-</script>
-    <script src="ruffle.js"></script>
-    
-    <!-- Google Fonts + Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* Orange Theme Color Palette (matching mainmenu) */
-        :root {
-            --orange-dark: #1a0b0e;
-            --orange-darker: #0f0507;
-            --orange-primary: #ff6b00;
-            --orange-secondary: #ff9500;
-            --orange-accent: #ff3d00;
-            --orange-yellow: #ffb300;
-            --orange-light: #ffcc80;
-            --orange-bg: #1c0f0a;
-            --orange-card: #2c1810;
-            --orange-text: #f5e6d3;
-            --orange-gray: #d7ccc8;
-        }
+    </script>
+    <script src="ruffle.js" defer></script>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-        }
+	<style type="text/css">
+		html{ background-color: #b8956a; }
+		body, html{ padding: 0; margin: 0; overflow: hidden; font-family: Arial; -webkit-tap-highlight-color: transparent; touch-action: pan-x pan-y; overscroll-behavior: none; width: 100%; height: 100%; height: 100dvh; position: fixed; inset: 0; }
+		body{ background-color: #b8956a; background-image: url(background.svg); background-size: cover; background-position: center center; overflow: hidden; }
 
-        body {
-            background: #0a0507;
-            font-family: 'Inter', sans-serif;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-        }
+		#boot-overlay{ position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; justify-content: center; align-items: center; box-sizing: border-box; padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); background-color: #b8956a; background-image: url(background.svg); background-size: cover; background-position: center center; transition: opacity 0.4s ease; overflow-x: hidden; overflow-y: auto; touch-action: manipulation; pointer-events: none; }
 
-        .game-wrapper {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at 20% 30%, #1f0e0c, #030101);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
+		#boot-overlay.boot-ready{ pointer-events: auto; cursor: pointer; }
+		#boot-overlay.boot-hidden{ opacity: 0; pointer-events: none; }
 
-        /* TOP BAR - GLASS NAVIGATION (matching mainmenu style) */
-        .game-navbar {
-            background: rgba(44, 24, 16, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--orange-primary);
-            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
-            padding: 0.5rem 0;
-            z-index: 100;
-        }
+		#boot-clouds{ position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+		.boot-cloud{ position: absolute; top: var(--y, 8%); left: 0; width: calc(127px * var(--s, 1)); height: auto; opacity: var(--o, 0.78); filter: drop-shadow(0 2px 0 rgba(186, 140, 110, 0.18)); animation: boot-cloud-drift var(--dur, 50s) linear infinite; animation-delay: var(--delay, 0s); transform: translate3d(-35vw, 0, 0) scaleX(var(--fx, 1)); }
 
-        .navbar-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 8px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+		@keyframes boot-cloud-drift{ from{ transform: translate3d(-35vw, 0, 0) scaleX(var(--fx, 1)); } to{ transform: translate3d(110vw, 0, 0) scaleX(var(--fx, 1)); } }
 
-        /* EXACT LOGO STYLE FROM MAINMENU */
-        .logo-horizontal {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+		@media (prefers-reduced-motion: reduce){ .boot-cloud{ animation: none; transform: translate3d(var(--rest-x, 10vw), 0, 0) scaleX(var(--fx, 1)); } }
 
-        .logo-horizontal:hover {
-            transform: scale(1.02);
-        }
+		#boot-loading{ position: relative; z-index: 1; text-align: center; padding: 8px 16px 0; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 420px; margin: 0 auto; flex-shrink: 0; }
+		#loading{ color: #111; font-weight: 800; font-size: clamp(20px, 5.2vw, 28px); text-align: center; line-height: 1.2; letter-spacing: -0.02em; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35); }
+		#loading-hint{ color: rgba(0, 0, 0, 0.58); font-size: clamp(12px, 3.4vw, 15px); font-weight: 600; margin: 8px 0 0; min-height: 1.25em; line-height: 1.35; padding: 0 4px; }
+		#boot-banner-wrap{ position: relative; width: min(394px, 92vw); aspect-ratio: 197 / 16; height: auto; margin: 16px auto 0; overflow: hidden; border-radius: 2px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); }
+		#boot-banner{ display: block; width: 100%; height: 100%; pointer-events: none; user-select: none; }
+		#loadbar{ position: absolute; top: 0; left: 0; width: calc(100% * 13.95 / 197); height: 100%; background: linear-gradient(to bottom, #0082F5 0%, #0053C6 100%); transform: scaleX(0); transform-origin: left center; pointer-events: none; }
 
-        .logo-img {
-            height: 45px;
-            width: 45px;
-            border-radius: 50%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(255, 107, 0, 0.6));
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            padding: 3px;
-            background: 
-                linear-gradient(var(--orange-card), var(--orange-card)) padding-box,
-                linear-gradient(135deg, var(--orange-primary), var(--orange-yellow)) border-box;
-            animation: logo-glow 2s ease-in-out infinite alternate;
-        }
+		#boot-whatsnew{ position: relative; z-index: 1; width: min(420px, 92vw); max-width: 100%; margin: 20px auto 12px; padding: 0 8px 8px; text-align: center; pointer-events: none; font-family: Arial, Helvetica, sans-serif; line-height: 1.35; user-select: none; flex-shrink: 0; box-sizing: border-box; }
+		#boot-whatsnew .boot-whatsnew-title{ color: #111; font-weight: 700; font-size: clamp(16px, 4.2vw, 24px); margin: 0 0 8px; }
+		#boot-whatsnew ul{ margin: 0; padding: 0; list-style: none; }
+		#boot-whatsnew li{ color: #5a5a5a; font-size: clamp(13px, 3.5vw, 18px); font-weight: 400; line-height: 1.4; padding: 2px 0; }
 
-        @keyframes logo-glow {
-            0% { box-shadow: 0 0 10px rgba(255, 107, 0, 0.3); }
-            100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.7); }
-        }
+		@media (min-width: 1000px) and (min-height: 620px){ #boot-overlay{ overflow-y: hidden; } #boot-whatsnew{ position: absolute; right: max(28%, calc(220px + env(safe-area-inset-right))); bottom: max(16%, calc(100px + env(safe-area-inset-bottom))); width: min(420px, 40vw); margin: 0; padding: 0; text-align: right; } #boot-whatsnew .boot-whatsnew-title{ font-size: 27px; margin: 0 0 9px; } #boot-whatsnew li{ font-size: 21px; } }
 
-        .logo-horizontal:hover .logo-img {
-            transform: rotate(360deg);
-            border-color: var(--orange-yellow);
-        }
+		@media (max-width: 999px) and (max-height: 680px), (max-height: 619px){ #boot-whatsnew{ margin-top: 12px; } }
+		@media (max-height: 899px){ #boot-whatsnew li:nth-child(n+4){ display: none; } }
+		@media (max-height: 520px) and (orientation: landscape){ #boot-whatsnew{ display: none; } #boot-loading{ transform: scale(0.92); transform-origin: center center; } }
 
-        .logo-full-text {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 1.3rem;
-            background: linear-gradient(135deg, var(--orange-primary), var(--orange-yellow));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 107, 0, 0.3);
-            position: relative;
-            padding: 5px 0;
-        }
+		#boot-focus{ display: none; position: absolute; inset: 0; z-index: 2; flex-direction: column; justify-content: center; align-items: center; padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); background-color: rgba(0, 0, 0, 0.69); box-sizing: border-box; touch-action: manipulation; }
+		#boot-focus > img{ width: 60vw; max-width: 90vh; height: auto; position: relative; z-index: 1; }
 
-        .logo-full-text::before {
-            content: 'STICK RUN CLASSIC';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            color: var(--orange-accent);
-            z-index: -1;
-            opacity: 0.7;
-            animation: text-glitch 3s infinite;
-        }
+		/* FIXED: GAME FILLS THE ENTIRE SCREEN */
+		#game{ position: fixed; top: 0; left: 0; width: 100%; height: 100%; height: 100dvh; z-index: 10; transform-origin: left top; background: transparent; touch-action: manipulation; }
+		#game.boot-locked, #game.boot-locked ruffle-player, #game.boot-locked canvas, #game.boot-locked input, #game.boot-locked textarea{ pointer-events: none !important; }
+		#game ruffle-player, ruffle-player{ background: transparent !important; touch-action: manipulation; width: 100% !important; height: 100% !important; }
+		#game ruffle-player, ruffle-player, #game canvas{ -webkit-user-select: none; user-select: none; }
+		#game canvas{ background: transparent !important; width: 100% !important; height: 100% !important; }
 
-        @keyframes text-glitch {
-            0%, 100% { transform: translate(0); }
-            20% { transform: translate(-1px, 1px); }
-            40% { transform: translate(-1px, -1px); }
-            60% { transform: translate(1px, 1px); }
-            80% { transform: translate(1px, -1px); }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-link {
-            color: var(--orange-gray) !important;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.2s;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background: rgba(255, 107, 0, 0.2);
-            color: var(--orange-primary) !important;
-            transform: translateY(-2px);
-        }
-
-        .discord-btn {
-            background: linear-gradient(135deg, var(--orange-primary), var(--orange-secondary));
-            border: none;
-            padding: 8px 20px;
-            border-radius: 50px;
-            color: white;
-            font-weight: bold;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .discord-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
-        }
-
-        /* GAME CONTAINER */
-        .game-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            margin: 16px 24px 24px 24px;
-            background: #000000aa;
-            border-radius: 32px;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,107,0,0.3);
-            overflow: hidden;
-        }
-
-        .game-embed {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000000;
-        }
-
-        .game-controls {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-            display: flex;
-            gap: 14px;
-            z-index: 30;
-        }
-
-        .ctrl-btn {
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,107,0,0.5);
-            border-radius: 60px;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffb347;
-            font-size: 1.4rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .ctrl-btn:hover {
-            background: rgba(255,107,0,0.3);
-            transform: scale(1.05);
-            color: white;
-        }
-
-        .status-badge {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(8px);
-            padding: 8px 18px;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #ffcf9a;
-            border-left: 3px solid #ff6b00;
-            pointer-events: none;
-            font-family: monospace;
-        }
-
-        @media (max-width: 780px) {
-            .navbar-container { padding: 8px 18px; }
-            .logo-full-text { font-size: 1rem; }
-            .logo-img { height: 38px; width: 38px; }
-            .nav-links { gap: 12px; }
-            .nav-link { font-size: 0.7rem; padding: 0.4rem 0.8rem; }
-            .discord-btn { padding: 6px 14px; font-size: 0.7rem; }
-            .game-container { margin: 8px 12px 18px 12px; border-radius: 24px; }
-            .ctrl-btn { width: 40px; height: 40px; font-size: 1.1rem; }
-            .status-badge { font-size: 0.65rem; padding: 5px 12px; }
-        }
-
-        .fade-out {
-            animation: fadeOut 0.3s ease forwards;
-        }
-
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        .loading-fallback {
-            color: #ffaa66;
-            font-family: 'Orbitron';
-            text-align: center;
-        }
-
-        /* Disable text selection on everything */
-        .no-select {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-    </style>
+		ruffle-player input, ruffle-player textarea, #game input, #game textarea{ font-size: 16px !important; touch-action: auto !important; pointer-events: auto !important; z-index: 99999 !important; -webkit-user-select: text !important; user-select: text !important; }
+	</style>
 </head>
 <body>
+	<div id="boot-overlay">
+		<div id="boot-clouds" aria-hidden="true"></div>
+		<div id="boot-loading">
+			<div id="loading">Loading...</div>
+			<div id="loading-hint" aria-live="polite"></div>
+			<div id="boot-banner-wrap"><img id="boot-banner" src="banner.svg" width="394" height="32" alt="Loading progress" fetchpriority="high" decoding="async"><div id="loadbar" aria-hidden="true"></div></div>
+		</div>
+		<div id="boot-whatsnew" aria-hidden="true">
+			<div class="boot-whatsnew-title">What's new?</div>
+			<ul id="boot-whatsnew-list"><li>New items</li><li>Friends System</li><li>Multiplayer Fixes</li></ul>
+		</div>
+		<div id="boot-focus"><img src="focuswarning.png" width="1173" height="304" alt="Click to focus the game" decoding="async" fetchpriority="low"></div>
+	</div>
+	<div id="game" class="boot-locked"></div>
 
-<div class="game-wrapper">
-    <!-- Navbar with EXACT logo style from mainmenu -->
-    <div class="game-navbar">
-        <div class="navbar-container">
-            <a class="logo-horizontal" id="backToMenuBtn" style="text-decoration: none;">
-                <img src="src.png" alt="Stick Run Classic" class="logo-img" onerror="this.src='https://via.placeholder.com/45?text=SRC'">
-                <span class="logo-full-text">STICK RUN CLASSIC</span>
-            </a>
-            <div class="nav-links">
-                <a class="nav-link active" id="nav-home">PLAY GAME</a>
-                <a class="nav-link" id="nav-mainmenu">MAIN MENU</a>
-                <a class="nav-link" id="nav-fullscreen">FULLSCREEN</a>
-                <a href="https://discord.gg/F7t9cf4gUm" target="_blank" class="discord-btn">
-                    <i class="fab fa-discord"></i> JOIN DISCORD
-                </a>
-            </div>
-        </div>
-    </div>
+	<script>
+		// Recreate the cloud generation
+		function randBetween(min, max){ return min + Math.random() * (max - min) }
+		function spawnBootClouds(){
+			var wrap = document.getElementById('boot-clouds')
+			if(!wrap) return
+			wrap.innerHTML = ''
+			var count = 12 + Math.floor(Math.random() * 5)
+			var frag = document.createDocumentFragment()
+			for(var i = 0; i < count; i++){
+				var img = document.createElement('img')
+				img.className = 'boot-cloud'
+				img.alt = ''
+				img.width = 127
+				img.height = 53
+				img.decoding = 'async'
+				var y = randBetween(10, 34)
+				var s = randBetween(0.7, 1.85) + 0.7
+				var dur = randBetween(36, 72) - (s * 6)
+				if(dur < 28) dur = 28
+				var delay = -randBetween(0, dur)
+				var o = randBetween(0.55, 0.88)
+				var fx = Math.random() < 0.5 ? -1 : 1
+				img.style.cssText = '--y:' + y.toFixed(1) + '%;--s:' + s.toFixed(2) + ';--dur:' + dur.toFixed(1) + 's;--delay:' + delay.toFixed(1) + 's;--o:' + o.toFixed(2) + ';--fx:' + fx + ';'
+				img.src = 'cloud.svg'
+				frag.appendChild(img)
+			}
+			wrap.appendChild(frag)
+		}
+		spawnBootClouds()
 
-    <!-- Main Game Area -->
-    <div class="game-container" id="gameContainer">
-        <div class="game-embed" id="gameEmbedArea">
-            <!-- Ruffle will handle the SWF here -->
-            <embed id="stickrunSwf" src="stickrun.swf" width="100%" height="100%" style="width:100%; height:100%; border-radius:24px;">
-        </div>
-        <div class="game-controls">
-            <div class="ctrl-btn" id="fullscreenBtn" title="Fullscreen Mode">
-                <i class="fas fa-expand"></i>
-            </div>
-            <div class="ctrl-btn" id="reloadGameBtn" title="Restart Game">
-                <i class="fas fa-sync-alt"></i>
-            </div>
-        </div>
-        <div class="status-badge">
-            <i class="fas fa-gamepad" style="margin-right: 6px;"></i> STICK RUN · SELF-HOSTED RUFFLE
-        </div>
-    </div>
-</div>
+		// Load main logic
+		document.addEventListener('DOMContentLoaded', () => {
+			if(typeof window.RufflePlayer?.newest !== 'function'){
+				document.getElementById('loading').textContent = 'Could not load game player'
+				return
+			}
 
-<script>
-    (function() {
-        // ========== SECURITY: DISABLE ALL DEV TOOLS SHORTCUTS ==========
-        // This prevents stealing the SWF file via browser dev tools
-        
-        // Block all keyboard shortcuts used to open dev tools
-        document.addEventListener('keydown', function(e) {
-            // Disable F12
-            /*if (e.key === 'F12' || e.keyCode === 123) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }*/
-            
-            // Disable Ctrl+Shift+I (Chrome DevTools)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+J (Chrome Console)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+C (Chrome Inspect Element)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+U (View Source)
-            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+S (Save Page)
-            if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+P (Print)
-            if (e.ctrlKey && (e.key === 'P' || e.key === 'p' || e.keyCode === 80)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+Shift+P (Command Palette)
-            if (e.ctrlKey && e.shiftKey && (e.key === 'P' || e.key === 'p' || e.keyCode === 80)) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable F1 (Help - sometimes opens dev tools)
-            if (e.key === 'F1' || e.keyCode === 112) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
-            
-            // Disable Ctrl+R (Refresh) - Allow only if game needs it? 
-            // Actually keep it enabled for normal refresh, but user can still refresh
-            // This is okay because SWF is still protected by server
-        });
-        
-        // Disable right-click context menu globally
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        });
-        
-        // Disable drag and drop to prevent file saving
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        document.addEventListener('drop', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable image dragging
-        window.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Prevent printing
-        window.addEventListener('beforeprint', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Disable copy/cut on the page (prevent copying SWF info)
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        document.addEventListener('cut', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Warn if dev tools is opened (detection)
-        let devToolsOpen = false;
-        const element = new Image();
-        Object.defineProperty(element, 'id', {
-            get: function() {
-                devToolsOpen = true;
-                console.warn('🔒 Developer tools detected! Please close them to continue playing.');
-                alert('⚠️ Security Notice: Developer tools are not allowed while playing. Please close them to continue.');
-                return '';
-            }
-        });
-        /*setInterval(() => {
-            devToolsOpen = false;
-            console.log(element);
-            console.clear();
-            if (devToolsOpen) {
-                console.warn('🔒 Developer tools detected!');
-            }
-        }, 1000);*/
-        
-        // Disable console.log override to prevent logging
-        if (typeof console !== 'undefined') {
-            const originalLog = console.log;
-            const originalWarn = console.warn;
-            const originalError = console.error;
-            console.log = function() {
-                // Filter out sensitive info if needed
-                // Keep basic logs but prevent logging SWF data
-                if (arguments[0] && arguments[0].includes && arguments[0].includes('SWF')) {
-                    return;
-                }
-                originalLog.apply(console, arguments);
-            };
-        }
-        
-        // ========== NAVIGATION BACK TO MAIN MENU ==========
-        const MAIN_MENU_URL = 'https://stickrunclassic.great-site.net';
-        
-        function goToMainMenu() {
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = MAIN_MENU_URL;
-            }, 250);
-        }
-        
-        const backToMenuBtn = document.getElementById('backToMenuBtn');
-        const navMainMenu = document.getElementById('nav-mainmenu');
-        
-        if (backToMenuBtn) {
-            backToMenuBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                goToMainMenu();
-            });
-        }
-        
-        if (navMainMenu) {
-            navMainMenu.addEventListener('click', (e) => {
-                e.preventDefault();
-                goToMainMenu();
-            });
-        }
-        
-        // Handle browser back button
-        window.addEventListener('popstate', () => {
-            goToMainMenu();
-        });
-        history.pushState({ page: 'game' }, '', window.location.href);
-        
-        // ========== FULLSCREEN & GAME CONTROLS ==========
-        const container = document.getElementById('gameContainer');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const reloadBtn = document.getElementById('reloadGameBtn');
-        const navFullscreen = document.getElementById('nav-fullscreen');
-        const embedElement = document.getElementById('stickrunSwf');
-        
-        let isFullscreen = false;
-        
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                container.requestFullscreen().catch(err => console.warn(err));
-                isFullscreen = true;
-            } else {
-                document.exitFullscreen();
-                isFullscreen = false;
-            }
-        }
-        
-        if (fullscreenBtn) fullscreenBtn.addEventListener('click', toggleFullscreen);
-        if (navFullscreen) {
-            navFullscreen.addEventListener('click', (e) => {
-                e.preventDefault();
-                toggleFullscreen();
-            });
-        }
-        
-        function reloadGame() {
-            if (embedElement) {
-                const currentSrc = embedElement.getAttribute('src');
-                const parent = embedElement.parentNode;
-                const newEmbed = document.createElement('embed');
-                newEmbed.id = "stickrunSwf";
-                newEmbed.src = currentSrc;
-                newEmbed.style.width = "100%";
-                newEmbed.style.height = "100%";
-                newEmbed.style.borderRadius = "24px";
-                parent.replaceChild(newEmbed, embedElement);
-                
-                const statusBadge = document.querySelector('.status-badge');
-                if (statusBadge) {
-                    const originalText = statusBadge.innerHTML;
-                    statusBadge.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> RESTARTING...';
-                    setTimeout(() => {
-                        statusBadge.innerHTML = originalText;
-                    }, 1500);
-                }
-            } else {
-                location.reload();
-            }
-        }
-        
-        if (reloadBtn) {
-            reloadBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                reloadGame();
-            });
-        }
-        
-        // Navigation link highlighting
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.id === 'nav-mainmenu') {
-                    e.preventDefault();
-                    goToMainMenu();
-                } else if (this.id === 'nav-fullscreen') {
-                    e.preventDefault();
-                    toggleFullscreen();
-                } else if (this.id === 'nav-home') {
-                    e.preventDefault();
-                    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    if (embedElement) embedElement.focus();
-                }
-                if (this.id !== 'nav-mainmenu') {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                }
-            });
-        });
-        
-        document.addEventListener('fullscreenchange', () => {
-            isFullscreen = !!document.fullscreenElement;
-        });
-        
-        // Prevent context menu on game area
-        document.querySelector('.game-container')?.addEventListener('contextmenu', (e) => e.preventDefault());
-        
-        // Keyboard shortcuts for game (preserve only game-related shortcuts)
-        window.addEventListener('keydown', (e) => {
-            // Only allow F for fullscreen
-            if (e.key === 'f' || e.key === 'F') {
-                e.preventDefault();
-                toggleFullscreen();
-            }
-            // Allow R to restart game
-            if (e.key === 'r' && (e.ctrlKey || e.metaKey)) {
-                e.preventDefault();
-                reloadGame();
-            }
-            // Alt + left arrow for menu
-            if (e.altKey && e.key === 'ArrowLeft') {
-                e.preventDefault();
-                goToMainMenu();
-            }
-        });
-        
-        // SWF error handling
-        if (embedElement) {
-            embedElement.addEventListener('error', function() {
-                console.warn("SWF loading error. Checking stickrun.swf path...");
-                const gameDiv = document.getElementById('gameEmbedArea');
-                if (gameDiv && !gameDiv.querySelector('.fallback-msg')) {
-                    const fallback = document.createElement('div');
-                    fallback.className = 'loading-fallback';
-                    fallback.style.position = 'absolute';
-                    fallback.style.top = '50%';
-                    fallback.style.left = '50%';
-                    fallback.style.transform = 'translate(-50%, -50%)';
-                    fallback.style.background = '#1a0b0ecc';
-                    fallback.style.padding = '20px 28px';
-                    fallback.style.borderRadius = '32px';
-                    fallback.style.border = '1px solid #ff6b00';
-                    fallback.style.backdropFilter = 'blur(12px)';
-                    fallback.style.zIndex = '50';
-                    fallback.style.textAlign = 'center';
-                    fallback.style.color = '#ffcc80';
-                    fallback.innerHTML = '<i class="fas fa-exclamation-triangle" style="font-size:2rem; margin-bottom:10px; display:block;"></i> Game file not found? <br> Ensure "stickrun.swf" is in the same folder.<br><br><button id="retryGameBtn" style="background:#ff6b00; border:none; padding:8px 20px; border-radius:30px; color:white; margin-top:10px; cursor:pointer; font-weight:bold;">Retry</button>';
-                    gameDiv.style.position = 'relative';
-                    gameDiv.appendChild(fallback);
-                    
-                    document.getElementById('retryGameBtn')?.addEventListener('click', () => {
-                        location.reload();
-                    });
-                }
-            });
-        }
-        
-        // Wait for Ruffle to initialize
-        setTimeout(() => {
-            if (typeof window.RufflePlayer !== 'undefined') {
-                console.log("✅ Self-hosted Ruffle loaded successfully");
-                const badge = document.querySelector('.status-badge');
-                if (badge) {
-                    const originalHtml = badge.innerHTML;
-                    badge.innerHTML = '<i class="fas fa-check-circle"></i> RUFFLE READY · CLICK TO PLAY';
-                    setTimeout(() => {
-                        badge.innerHTML = originalHtml;
-                    }, 3000);
-                }
-            } else {
-                console.warn("⚠️ Ruffle not loaded - check if ruffle.js is in the same folder");
-            }
-        }, 1000);
-        
-        // Add glow effects
-        const styleInject = document.createElement('style');
-        styleInject.textContent = `
-            .game-container {
-                transition: box-shadow 0.3s ease;
-            }
-            .game-container:hover {
-                box-shadow: 0 0 28px rgba(255,107,0,0.4), inset 0 0 20px rgba(255,107,0,0.1);
-            }
-            .ctrl-btn i {
-                transition: transform 0.2s;
-            }
-            .ctrl-btn:hover i {
-                transform: scale(1.1);
-            }
-            embed, ruffle-player {
-                border-radius: 24px;
-                box-shadow: 0 12px 28px black;
-            }
-            ::-webkit-scrollbar {
-                width: 0;
-                background: transparent;
-            }
-            body {
-                overflow: hidden;
-            }
-            .status-badge i {
-                animation: pulse 1.5s infinite;
-            }
-            @keyframes pulse {
-                0%, 100% { opacity: 1; }
-                50% { opacity: 0.6; }
-            }
-        `;
-        document.head.appendChild(styleInject);
-        
-        // Floating hint (auto-hide)
-        const hintDiv = document.createElement('div');
-        hintDiv.style.position = 'fixed';
-        hintDiv.style.bottom = '20px';
-        hintDiv.style.left = '50%';
-        hintDiv.style.transform = 'translateX(-50%)';
-        hintDiv.style.background = 'rgba(0,0,0,0.6)';
-        hintDiv.style.backdropFilter = 'blur(8px)';
-        hintDiv.style.padding = '6px 16px';
-        hintDiv.style.borderRadius = '40px';
-        hintDiv.style.fontSize = '0.7rem';
-        hintDiv.style.color = '#ffb347';
-        hintDiv.style.fontFamily = 'monospace';
-        hintDiv.style.zIndex = '40';
-        hintDiv.style.pointerEvents = 'none';
-        hintDiv.innerHTML = '<i class="fas fa-arrow-left"></i> Click logo or "MAIN MENU" to return to stickrunclassic.great-site.net';
-        document.body.appendChild(hintDiv);
-        
-        setTimeout(() => {
-            if (hintDiv) {
-                hintDiv.style.transition = 'opacity 0.5s';
-                hintDiv.style.opacity = '0';
-                setTimeout(() => hintDiv.remove(), 500);
-            }
-        }, 5000);
-        
-        console.log("🔥 Stick Run Classic | Self-hosted Ruffle | Ready to play!");
-        console.log("📍 Main menu redirects to: https://stickrunclassic.great-site.net");
-        console.log("🔒 Security enabled: Dev tools shortcuts blocked | Right-click disabled");
-    })();
-</script>
+			const loadingEl = document.getElementById('loading')
+			const hintEl = document.getElementById('loading-hint')
+			const loadbarEl = document.getElementById('loadbar')
+			const bootOverlay = document.getElementById('boot-overlay')
+			const focusEl = document.getElementById('boot-focus')
+			const gameContainer = document.getElementById('game')
 
+			let bootPcent = 0
+			let gameReady = false
+			let bootDismissed = false
+
+			function setBootProgress(pct){
+				bootPcent = Math.max(0, Math.min(100, pct))
+				loadbarEl.style.transform = 'scaleX(' + (bootPcent / 100 * (197 / 13.95)) + ')'
+			}
+
+			function onGameReady(){
+				if(gameReady) return
+				gameReady = true
+				bootPcent = 100
+				loadbarEl.style.transform = 'scaleX(' + (197 / 13.95) + ')'
+				loadingEl.textContent = 'Ready!'
+				hintEl.textContent = 'Tap anywhere to start playing'
+				// Show focus overlay
+				document.getElementById('boot-loading').style.display = 'none'
+				document.getElementById('boot-whatsnew').style.display = 'none'
+				document.getElementById('boot-clouds').style.display = 'none'
+				focusEl.style.display = 'flex'
+				bootOverlay.classList.add('boot-ready')
+				
+				// Wait for click/tap to start
+				bootOverlay.addEventListener('click', function startGame(){
+					bootDismissed = true
+					focusEl.style.display = 'none'
+					bootOverlay.classList.remove('boot-ready')
+					bootOverlay.classList.add('boot-hidden')
+					gameContainer.classList.remove('boot-locked')
+					try{ player.play() }catch(e){}
+					try{ player.ruffle().resume() }catch(e){}
+					bootOverlay.remove()
+				}, { once: true })
+			}
+
+			// Define stickrun frame2 callback (called by your SWF)
+			window.stickrun_frame2 = function(){ onGameReady() }
+
+			// Create Ruffle player
+			const ruffle = window.RufflePlayer.newest()
+			const player = ruffle.createPlayer()
+			window.player = player
+			player.style.opacity = '0'
+			gameContainer.appendChild(player)
+
+			setBootProgress(18)
+			hintEl.textContent = 'Preparing game client'
+
+			// Load the SWF
+			player.ruffle().load({
+				url: 'stickrun.swf',
+				autoplay: 'on',
+				unmuteOverlay: 'hidden',
+				letterbox: 'off',
+				splashScreen: false,
+				contextMenu: 'off',
+				menu: false,
+				showSwfDownload: false,
+				allowScriptAccess: true,
+				quality: 'medium',
+				base: '/',
+				parameters: { ruffle: true }
+			}).then(() => {
+				// This falls back if SWF doesn't call frame2 quickly
+				player.style.opacity = '1'
+				setTimeout(() => {
+					if(!gameReady) onGameReady()
+				}, 5000)
+			}).catch(err => {
+				loadingEl.textContent = 'Failed to load game'
+				hintEl.textContent = 'Check your connection and refresh'
+				console.error(err)
+			})
+
+			// Simulate loading progress
+			setInterval(() => {
+				if(!gameReady && bootPcent < 90){
+					setBootProgress(bootPcent + Math.random() * 3)
+				}
+			}, 200)
+		})
+	</script>
 </body>
 </html>
